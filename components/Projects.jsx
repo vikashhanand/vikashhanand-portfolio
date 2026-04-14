@@ -6,7 +6,7 @@ import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
-import { ExternalLink, Github, Eye, Bot, BookOpen } from 'lucide-react';
+import { ExternalLink, Github, Eye, Bot, BookOpen, ShoppingBag } from 'lucide-react';
 
 /**
  * Projects Section - Enhanced with Framer Motion cards
@@ -31,6 +31,19 @@ const Projects = () => {
     },
     {
       id: 2,
+      title: "Online Book Store",
+      category: "E-COMMERCE",
+      description: "Full-stack web application that allows users to buy, sell, and rent books with authentication, search functionality, and responsive UI for better user experience.",
+      longDescription: "A full-stack e-commerce solution for book enthusiasts. This platform enables users to browse, buy, sell, and even rent books. Features include user authentication, a robust search system, and a seamless responsive interface designed for the best reading-related commerce experience.",
+      technologies: ["Next.js", "React", "Node.js", "MongoDB", "Tailwind"],
+      githubUrl: "https://github.com/vikashhanand/Online-Book-Store-",
+      liveUrl: "https://online-book-store-buy-sell-rent.vercel.app",
+      featured: true,
+      icon: ShoppingBag,
+      color: "from-green-500/10 to-emerald-500/10"
+    },
+    {
+      id: 3,
       title: "NextGenPrep",
       category: "EdTech",
       description: "Online preparation platform designed to help students practice technical interview questions.",
@@ -126,11 +139,18 @@ const Projects = () => {
                     ))}
                   </div>
 
-                  <div className="flex gap-4">
+                  <div className="flex flex-wrap gap-3">
                     <Button variant="outline" size="sm" asChild className="flex-1 bg-background/50 hover:bg-primary hover:text-white transition-all duration-300">
                       <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="h-4 w-4 mr-2" />
                         Live Demo
+                      </a>
+                    </Button>
+
+                    <Button variant="outline" size="sm" asChild className="flex-1 bg-background/50 hover:bg-primary hover:text-white transition-all duration-300">
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                        <Github className="h-4 w-4 mr-2" />
+                        GitHub
                       </a>
                     </Button>
 

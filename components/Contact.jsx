@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { useToast } from '../hooks/use-toast';
-import { Mail, Phone, MapPin, Linkedin, Github, Twitter, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, Twitter, Send, Globe, FileText } from 'lucide-react';
 
 /**
  * Contact Section - Functional WhatsApp + MongoDB Integration
@@ -26,7 +26,8 @@ const Contact = () => {
   const contactInfo = [
     { icon: Mail, label: 'Email', value: 'vikashhanand@gmail.com', href: 'mailto:vikashhanand@gmail.com' },
     { icon: Phone, label: 'Phone', value: '+91 7903221054', href: 'tel:+917903221054' },
-    { icon: MapPin, label: 'Location', value: 'India', href: '#' }
+    { icon: MapPin, label: 'Location', value: 'India', href: '#' },
+    { icon: FileText, label: 'Resume', value: 'Download Resume', href: 'https://drive.google.com/file/d/1tMW5TC3pQU9bnglSXwGJwC1vg_q2FQ7K/view?usp=share_link' }
   ];
 
   const handleChange = (e) => {
@@ -50,7 +51,7 @@ const Contact = () => {
 
       toast({
         title: "Success!",
-        description: "Your message has been saved. Redirecting to WhatsApp...",
+        description: "Your message has been received. I will connect with you within 24–48 hours....",
       });
 
       // 2. Format WhatsApp Message
@@ -119,6 +120,8 @@ Message: ${formData.message}`;
               <motion.div key={index} variants={itemVariants} whileHover={{ x: 5 }}>
                 <a 
                   href={info.href}
+                  target={info.href.startsWith('http') ? "_blank" : undefined}
+                  rel={info.href.startsWith('http') ? "noopener noreferrer" : undefined}
                   className="flex items-center p-6 bg-background/50 backdrop-blur-sm border border-border/50 rounded-2xl shadow-sm hover:shadow-xl hover:shadow-primary/5 hover:border-primary/20 transition-all duration-300 group"
                 >
                   <div className="p-3 bg-primary/10 rounded-xl group-hover:scale-110 transition-transform duration-500">
